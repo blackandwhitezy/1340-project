@@ -23,7 +23,7 @@ int readlist(int good[]){
     line_in>>name;
     line_in>>profit;
     good[i]=atoi(profit.c_str());
-    i++
+    i++;
   }
   return i;
 }
