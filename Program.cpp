@@ -8,13 +8,18 @@ struct customer{
   double profit;
   int item_no;
 };
-void readlist(){
+int readlist(int * good[]){
   
+  string line,name,profit;int i=0;
   ifstream fin("goods.txt");
-  isringstream word;
+  isringstream line_in(line);
   while (getline(fin,line)){
-    
-    
+    line_in>>name;
+    line_in>>profit;
+    good[i]=atoi(profit.c_str());
+    i++
+  }
+  return i;
 }
 
 void generate_random(){}
