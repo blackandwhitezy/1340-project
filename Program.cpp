@@ -28,16 +28,20 @@ void generate_random(customer line[],int good[]){
   
 }
 //return maxprofit
-int arrange_line(int cus_no,int [],customer *p){
-  int pack[n][TIME];
-  for (int i=0;i<n;i++)
-    for (int j=0;j<TIME;j++)
-      if (p.item_no<=j)pack[n][j]=p.profit;
-  int test=(p.item>j?p[i][j-1]:p[i-1][j-p.item]+p.profit);
-  test=(test>p[i][j-1]?test:p[i][j-1]);
-  test=(test>p[i-1][j]?test:p[i-1][j]);
+int arrange_line(int cus_no,int cus_chosen_id[],customer *p){
+  int test,pack[cus_no+1][TIME+1];
+    for (int i=0;i<cus_no+1;i++)
+      for (int j=0;j<TIME+1;j++)
+        pack[i][j]=0;
+  for (int i=1;i<cus_no+1;i++){
+    for (int j=1;j<TIME+1;j++){
+      test=(p[i].item>j?pack[i][j-1]:pack[i-1][j-p[i].item]+p[i].profit);
+      test=isBigger(test,pack[i][j-1],pack[i-1][j]);
+    }
+  }
   return pack[n-1][TIME-1];  
 }
+int isBigger(int a,int b,int c){}
 
 void print_line(){}
 
