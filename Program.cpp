@@ -4,6 +4,7 @@
 using namespace std;
 
 const int GOOD_MAX=100;
+const int time=90; 
 struct customer{
   double profit;
   int item_no;
@@ -27,7 +28,9 @@ void generate_random(customer line[],int good[]){
   
 }
 
-void arrange_line(){}
+void arrange_line(){
+  
+}
 
 void print_line(){}
 
