@@ -4,7 +4,7 @@
 using namespace std;
 
 const int GOOD_MAX=100;
-const int time=90; 
+const int TIME=90; 
 struct customer{
   double profit;
   int item_no;
@@ -27,16 +27,23 @@ int readlist(int good[]){
 void generate_random(customer line[],int good[]){
   
 }
-
-void arrange_line(){
-  
+//return maxprofit
+int arrange_line(int cus_no,int [],customer *p){
+  int pack[n][TIME];
+  for (int i=0;i<n;i++)
+    for (int j=0;j<TIME;j++)
+      if (p.item_no<=j)pack[n][j]=p.profit;
+  int test=(p.item>j?p[i][j-1]:p[i-1][j-p.item]+p.profit);
+  test=(test>p[i][j-1]?test:p[i][j-1]);
+  test=(test>p[i-1][j]?test:p[i-1][j]);
+  return pack[n-1][TIME-1];  
 }
 
 void print_line(){}
 
 int main()
 {
-  int good[GOOD_MAX];
+  int good[GOOD_MAX],line[TIME];
   readlist(good);
   int n;
   cout << "How many customers in the line?" <<endl;
