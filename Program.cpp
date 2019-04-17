@@ -3,6 +3,7 @@
 #include <string>
 using namespace std;
 
+const int GOOD_MAX=100;
 struct customer{
   double profit;
   int item_no;
