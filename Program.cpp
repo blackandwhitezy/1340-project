@@ -34,7 +34,7 @@ void generate_random(customer line[],int good[]){
 
 //return maxprofit
 int arrange_line(int cus_no,int cus_chosen_id[],customer *p){
-  int test,pack[cus_no+1][TIME+1];
+  int test,*pack=new int[cus_no+1][TIME+1];
     for (int i=0;i<cus_no+1;i++)
       for (int j=0;j<TIME+1;j++)
         pack[i][j]=0;
