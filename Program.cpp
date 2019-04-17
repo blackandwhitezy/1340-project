@@ -2,14 +2,17 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+
 using namespace std;
 
 const int GOOD_MAX=100;
 const int TIME=90; 
+
 struct customer{
   double profit;
   int item_no;
 };
+
 //creat the good array based on good list. return the total number of goods available.
 int readlist(int good[]){
   
@@ -28,6 +31,7 @@ int readlist(int good[]){
 void generate_random(customer line[],int good[]){
   
 }
+
 //return maxprofit
 int arrange_line(int cus_no,int cus_chosen_id[],customer *p){
   int test,pack[cus_no+1][TIME+1];
@@ -42,6 +46,7 @@ int arrange_line(int cus_no,int cus_chosen_id[],customer *p){
   }
   return pack[n-1][TIME-1];  
 }
+
 int isBigger(int a,int b,int c){}
 
 void print_line(){}
