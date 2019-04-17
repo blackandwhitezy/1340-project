@@ -9,7 +9,7 @@ struct customer{
   int item_no;
 };
 void readlist(){
-  int good[GOOD_MAX];
+  
   ifstream fin("goods.txt");
   isringstream word;
   while(getline(fin,lin))
@@ -23,6 +23,7 @@ void print_line(){}
 
 int main()
 {
+  int good[GOOD_MAX];
   int n;
   cout << "How many customers in the line?" >>endl;
   cin >> n;
