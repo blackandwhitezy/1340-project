@@ -9,7 +9,7 @@ struct customer{
   int item_no;
 };
 //creat the good array based on good list. return the total number of goods available.
-int readlist(int * good[]){
+int readlist(int good[]){
   
   string line,name,profit;int i=0;
   ifstream fin("goods.txt");
