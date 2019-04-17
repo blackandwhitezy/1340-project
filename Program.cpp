@@ -44,6 +44,7 @@ int arrange_line(int cus_no,int cus_chosen_id[],customer *p){
       test=isBigger(test,pack[i][j-1],pack[i-1][j]);
     }
   }
+  delete [] pack;
   return pack[n-1][TIME-1];  
 }
 
