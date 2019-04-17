@@ -2,7 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-
+#include <ctime>
 using namespace std;
 
 const int GOOD_MAX=100;
@@ -28,8 +28,14 @@ int readlist(int good[]){
   return i;
 }
 
-void generate_random(customer line[],int good[]){
-  
+void generate_random(customer line[],int cus_pos, int good[], int good_no){
+  int n = 0;
+  srand(time(0));
+  for (int i=0;i<good_no;i++){
+    n = 1+rand()%3;
+    line[cus_pos].profit += good[i] * n;
+    line[cus_pos].item_no += n;
+  }
 }
 
 //return maxprofit
@@ -48,21 +54,32 @@ int arrange_line(int cus_no,int cus_chosen_id[],customer *p){
   return pack[n-1][TIME-1];  
 }
 
-int isBigger(int a,int b,int c){}
+int isBigger(int a,int b,int c){
+  int temp;
+  if (a > b){
+    temp = a;
+  }
+  else{
+    temp = b;
+  }
+  if(temp<c){
+    temp = c;
+  }
+  return temp;
+}
 
 void print_line(){}
 
 int main()
 {
   int good[GOOD_MAX],line[TIME];
-  readlist(good);
+  good_no = readlist(good);
   int n;
   cout << "How many customers in the line?" <<endl;
   cin >> n;
   customer *line = new customer[n];
-  for (int i=0;i<n;i++)
-  {
-    generate_random(line,good);
+  for (int i=0;i<n;i++){
+    generate_random(line,i,good,good_no);
   }
 
 }
