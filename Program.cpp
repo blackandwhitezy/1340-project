@@ -17,7 +17,7 @@ void readlist(){
     
 }
 
-void generate_random(){}
+void generate_random(line[],good[]){}
 
 void arrange_line(){}
 
@@ -26,13 +26,14 @@ void print_line(){}
 int main()
 {
   int good[GOOD_MAX];
+  readlist(good);
   int n;
   cout << "How many customers in the line?" <<endl;
   cin >> n;
   customer *line = new customer[n];
   for (int i=0;i<n;i++)
   {
-    void 
+    void generate_random(line,good);
   }
 
 }
