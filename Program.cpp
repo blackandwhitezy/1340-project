@@ -23,7 +23,9 @@ int readlist(int good[]){
   return i;
 }
 
-void generate_random(customer line[],int good[]){}
+void generate_random(customer line[],int good[]){
+  
+}
 
 void arrange_line(){}
 
