@@ -12,7 +12,9 @@ void readlist(){
   
   ifstream fin("goods.txt");
   isringstream word;
-  while(getline(fin,lin))
+  while (getline(fin,line)){
+    
+    
 }
 
 void generate_random(){}
