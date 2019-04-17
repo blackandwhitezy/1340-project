@@ -55,7 +55,7 @@ int main()
   customer *line = new customer[n];
   for (int i=0;i<n;i++)
   {
-    void generate_random(line,good);
+    generate_random(line,good);
   }
 
 }
