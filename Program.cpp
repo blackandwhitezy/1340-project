@@ -8,7 +8,10 @@ struct customer{
   int item_no;
 };
 void readlist(){
-  ifstream 
+  int good[GOOD_MAX];
+  ifstream fin("goods.txt");
+  isringstream word;
+  while(getline(fin,lin))
 }
 
 void generate_random(){}
