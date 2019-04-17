@@ -27,7 +27,7 @@ int main()
 {
   int good[GOOD_MAX];
   int n;
-  cout << "How many customers in the line?" >>endl;
+  cout << "How many customers in the line?" <<endl;
   cin >> n;
   customer *line = new customer[n];
   for (int i=0;i<n;i++)
