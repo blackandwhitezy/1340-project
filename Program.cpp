@@ -20,8 +20,8 @@ int readlist(int good[]){
   
   string line,name,profit;int i=0;
   ifstream fin("goods.txt");
-  istringstream line_in(line);
   while (getline(fin,line)){
+    istringstream line_in(line);
     line_in>>name;
     line_in>>profit;
     good[i]=atoi(profit.c_str());
