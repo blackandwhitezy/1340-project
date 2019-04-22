@@ -72,6 +72,19 @@ int arrange_line(int cus_no,int cus_chosen_id[],customer *p){
   return pack[cus_no-1][TIME-1];  
 }
 
+void trace_line(int i, int j){
+  int track[TIME]={0};
+  if (c>=0){
+    if (pack[i][j] == pack[i-1][j]){
+      trace[i] = 0;
+      trace_line (i-1,j);
+    }
+    else (pack[i][j] == pack[i-1][j-p[i].item_no]+p[i].profit){
+      trace[i] = 1;
+      trace_line(i-1,j-p[i].item_no)
+    }
+  }
+}
 void print_line(){}
 
 int main()
