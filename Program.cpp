@@ -65,6 +65,7 @@ int arrange_line(int cus_no,int cus_chosen_id[],customer *p){
     for (int j=1;j<TIME+1;j++){
       test=(p[i].item_no>j?pack[i][j-1]:pack[i-1][j-p[i].item_no]+p[i].profit);
       test=isBigger(test,pack[i][j-1],pack[i-1][j]);
+      pack[i][j]=test;
     }
   }
   delete [] pack;
