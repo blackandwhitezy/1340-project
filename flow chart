@@ -9,17 +9,17 @@ struct:
 1. cus
    int goods_no;
    int goods_pro;
-   itn id;
    cus *next;
    cus *id_ptr[TIME];
 2. good
    string good_name;
    int good_pro;
 linked list:
-   cus_raw
+   cus_raw(updated after each line sorting)
 array:
 1. goods.txt->good goods[]
-2. 
+2. package[cus_no_updated+1][TIME+1]
+3. line(per counter)==package[cus_no_updated][TIME].id_ptr[TIME]
 prints:
 1. after user input cus_no:
 print cus_id, goods; good_nos;
