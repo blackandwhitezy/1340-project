@@ -7,13 +7,15 @@ using namespace std;
 
 const int GOOD_MAX=100;
 const int TIME=90; 
+const int COST_PER_LINE;
+const int CUSTOMER_MAX;
 
 struct customer{
   double profit;
   int item_no;
 };
 
-//creat the good array based on good list. return the total number of goods available.
+//creat the good array based on good list. Return the total number of goods available.
 int readlist(int good[]){
   
   string line,name,profit;int i=0;
@@ -72,7 +74,7 @@ void print_line(){}
 
 int main()
 {
-  int good[GOOD_MAX],line[TIME];
+  int good[GOOD_MAX],line[CUSTOMER_MAX];
   good_no = readlist(good);
   int n;
   cout << "How many customers in the line?" <<endl;
@@ -81,5 +83,6 @@ int main()
   for (int i=0;i<n;i++){
     generate_random(line,i,good,good_no);
   }
-
+  while (arrange_line()>COST_PER_LINE)
+    
 }
