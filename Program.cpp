@@ -17,7 +17,6 @@ struct customer{
 
 //creat the good array based on good list. Return the total number of goods available.
 int readlist(int good[]){
-  
   string line,name,profit;int i=0;
   ifstream fin("goods.txt");
   while (getline(fin,line)){
@@ -32,9 +31,8 @@ int readlist(int good[]){
 
 void generate_random(customer line[],int cus_pos, int good[], int good_no){
   int n = 0;
-  srand(time(0));
   for (int i=0;i<good_no;i++){
-    n = 1+rand()%3;
+    n = rand()%4;
     line[cus_pos].profit += good[i] * n;
     line[cus_pos].item_no += n;
   }
@@ -83,6 +81,7 @@ int main()
   cout << "How many customers in the line?" <<endl;
   cin >> n;
   customer *line = new customer[n];
+  srand(time(0));
   for (int i=0;i<n;i++){
     generate_random(line,i,good,good_no);
   }
