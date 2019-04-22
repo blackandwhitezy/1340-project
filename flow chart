@@ -1,3 +1,5 @@
+1. Convert goods.txt to goods, an array of good type. 2. Read cus_no from user. 3. Create a linked list to store cus_no customer. For each 
+customer, use rand() and goods[] to generate his choice for each good. Sum
 input:
 1. goods.txt(ifstream)
 2. cus_no(istream)
@@ -5,21 +7,27 @@ input:
 4. CUS_MAX
 5.
 6.
+7. static array of weight for rand()
 struct:
 1. cus
    int goods_no;
    int goods_pro;
    cus *next;
    cus *id_ptr[TIME];
+   cus goods[GOODS_NO]
 2. good
    string good_name;
    int good_pro;
+3. cus_goods
+   string good_name;
+   int good_no;
 linked list:
    cus_raw(updated after each line sorting)
 array:
 1. goods.txt->good goods[]
 2. package[cus_no_updated+1][TIME+1]
 3. line(per counter)==package[cus_no_updated][TIME].id_ptr[TIME]
+4. static array
 prints:
 1. after user input cus_no:
 print cus_id, goods; good_nos;
