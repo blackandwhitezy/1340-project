@@ -1,0 +1,30 @@
+input:
+1. goods.txt(ifstream)
+2. cus_no(istream)
+3. TIME
+4. CUS_MAX
+5.
+6.
+struct:
+1. cus
+   int goods_no;
+   int goods_pro;
+   itn id;
+   cus *next;
+   cus *id_ptr[TIME];
+2. good
+   string good_name;
+   int good_pro;
+linked list:
+   cus_raw
+array:
+1. goods.txt->good goods[]
+2. 
+prints:
+1. after user input cus_no:
+print cus_id, goods; good_nos;
+2. after sorting the cus_raw:
+print (counter_id, line)(s)
+print cus_drain
+print net_profit
+
