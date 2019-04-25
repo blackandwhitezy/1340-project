@@ -90,7 +90,13 @@ void print_customer(customer line[],int cus_no){
   for (int i=0;i<cus_no,i++){
     cout<<"Customer "<<i<<" bought "<<line[i].item_no<<endl; 
 }
-
+  
+void print_line(int customer_number[],int number, int profit){
+  for(int i=0; i<number;i++)
+    cout << customer_number[i] << " " << endl;
+  cout << "profit for this cashier: " << profit;
+}
+  
 int main()
 {
   int good[GOOD_MAX];
