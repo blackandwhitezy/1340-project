@@ -135,7 +135,7 @@ int main()
     line_no=trace_line(counter,trace,cus_no,TIME,line,pack);
     cout << "Cashier #" << cashier_counter<<endl;
     print_line(trace,line_no,profit);
-    trace[100]={0};
+    trace[CUSTOMER_MAX]={0};
     profit=arrange_line(cus_no,line,pack);
     cout<<"Profit for openning a new cashier: $"<<profit<<endl;
   }
