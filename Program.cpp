@@ -7,8 +7,8 @@ using namespace std;
 
 const int GOOD_MAX=100;
 const int TIME=90; 
-const int COST_PER_LINE;
-const int CUSTOMER_MAX;
+const int COST_PER_LINE=100;
+const int CUSTOMER_MAX=100;
 
 struct customer{
   double profit;
@@ -53,7 +53,7 @@ int isBigger(int a,int b,int c){
 }
 
 //return maxprofit
-int arrange_line(int cus_no,int cus_chosen_id[],customer *p){
+int arrange_line(int cus_no,customer *p){
   int test,**pack=new int*[cus_no+1];
   for (int i=0;i<cus_no+1;i++){
     pack[i] = new int [TIME+1];
@@ -72,26 +72,30 @@ int arrange_line(int cus_no,int cus_chosen_id[],customer *p){
   return pack[cus_no-1][TIME-1];  
 }
 
-void trace_line(int i, int j){
-  int track[TIME]={0};
+void trace_line(int i, int j,customer *p){
+  int trace[CUSTOMER_MAX]={0};
   if (c>=0){
     if (pack[i][j] == pack[i-1][j]){
-      trace[i] = 0;
       trace_line (i-1,j);
     }
-    else (pack[i][j] == pack[i-1][j-p[i].item_no]+p[i].profit){
+    else if (pack[i][j] == pack[i-1][j-p[i].item_no]+p[i].profit){
       trace[i] = 1;
+      p[i].item_no=0;
+      p[i].profit=0;
       trace_line(i-1,j-p[i].item_no)
     }
   }
 }
-void print_line(){}
+void print_customer(customer line[],int cus_no){
+  for (int i=0;i<cus_no,i++){
+    cout<<"Customer "<<i<<" bought "<<line[i].item_no<<endl; 
+}
 
 int main()
 {
   int good[GOOD_MAX];
   int good_no = readlist(good);
-  int n;
+  int n,cashier_counter=0;
   cout << "How many customers in the line?" <<endl;
   cin >> n;
   customer *line = new customer[n];
@@ -99,6 +103,9 @@ int main()
   for (int i=0;i<n;i++){
     generate_random(line,i,good,good_no);
   }
-  while (arrange_line()>COST_PER_LINE)
-    
+  while (arrange_line(n,line)>COST_PER_LINE){
+    cashier_counter+=1
+    trace_line(cus_no,TIME,line)
+    cout<<"Cashier #"<<cashier_counter<<endl;
+    print_line();
 }
