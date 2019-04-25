@@ -74,19 +74,17 @@ int arrange_line(int cus_no,customer *p){
 
 int trace_line(int i, int j,customer *p){
   int counter=0,trace[CUSTOMER_MAX]={0};
-  if (c>=0){
-    if (pack[i][j] == pack[i-1][j]){
-      trace_line (i-1,j);
-    }
-    else if (pack[i][j] == pack[i-1][j-p[i].item_no]+p[i].profit){
-      trace[i] = 1;
-      counter+=1;
-      p[i].item_no=0;
-      p[i].profit=0;
-      trace_line(i-1,j-p[i].item_no);
-    }
-  }
-  return counter;
+  if (pack[i][j] == pack[i-1][j]){
+    trace_line (i-1,j);
+   }
+   else if (pack[i][j] == pack[i-1][j-p[i].item_no]+p[i].profit){
+     trace[i] = 1;
+     counter+=1;
+     p[i].item_no=0;
+     p[i].profit=0;
+     trace_line(i-1,j-p[i].item_no);
+   }
+   return counter;
 }
 void print_customer(customer line[],int cus_no){
   for (int i=0;i<cus_no,i++){
