@@ -4,5 +4,3 @@
 #include<arrange_line.h>
 #include<trace_line.h>
 #include<write_cashier_arrangment.h>
-
-int main();
