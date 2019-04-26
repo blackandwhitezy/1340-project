@@ -9,8 +9,8 @@ using namespace std;
 
 const int GOOD_MAX=100;
 const int TIME=90;
-const int COST_PER_LINE=50;
-const int CUSTOMER_MAX=100;
+const int COST_PER_LINE=300;
+const int CUSTOMER_MAX=500;
 
 struct customer{
   double profit;
@@ -23,11 +23,12 @@ int readlist(int good[],string goodname[]){
   ifstream fin("goods.txt");
   while (getline(fin,line)){
     istringstream line_in(line);
-    line_in>>name;
+    line_in>>goodname[i];
     line_in>>profit;
     good[i]=atoi(profit.c_str());
     i++;
   }
+  fin.close();
   return i;
 }
 
@@ -36,13 +37,14 @@ void generate_random(customer line[],int cus_pos, int good[], int good_no, strin
   ofstream fout("Raw_Customer.txt",ios::app);
   fout << "Customer "<<left<< setw(3)<<cus_pos+1 <<"bought ";
   for (int i=0;i<good_no;i++){
-    n = rand()%4;
-    fout <<setw(2)<<n << goodname[i]<< ", ";
+    n = rand()%6;
+    fout <<setw(2) <<n << goodname[i]<< ", ";
     line[cus_pos].profit += good[i] * n;
     line[cus_pos].item_no += n;
     //cout << line[cus_pos].profit <<" " << line[cus_pos].item_no << endl;
   }
   fout << " Total items: "<<left <<setw(3)<< line[cus_pos].item_no <<" Total profit: "<<left<<setw(3)<< line[cus_pos].profit<<endl;
+  fout.close();
 }
 
 
@@ -91,7 +93,6 @@ int trace_line(int trace[],int i, int j,customer *&p,int **&pack){
   }
   else if (pack[i][j] == pack[i-1][j-p[i-1].item_no]+p[i-1].profit && pack[i][j]!=0){
     trace[i-1] = i;
-    p[i-1].item_no=0;
     p[i-1].profit=0;
     trace_line(trace,i-1,j-p[i-1].item_no,p,pack);
   }
@@ -99,19 +100,22 @@ int trace_line(int trace[],int i, int j,customer *&p,int **&pack){
 }
 
 
-void print_line(int customer_number[],int number, int profit){
+void print_line(int customer_number[],int number, int profit, int cashier_counter){
+  ofstream fout("Line_Customer.txt",ios::app);
+  fout << "Cashier #" << cashier_counter<<endl;
   for(int i=0; i<number;i++){
-    if (customer_number[i]=0)
-      cout << "Customer "<<setw(3)<<customer_number[i] << " being chosen "<< endl;
+    if (customer_number[i] !=0)
+      fout << "Customer "<< left <<setw(3) << customer_number[i] << "being chosen "<< endl;
   }
-  cout << "profit for this cashier: $" << profit<<endl;
+  fout << "Total profit for this cashier: $" << profit <<endl;
+  fout.close();
 }
 
 int main()
 {
   int good[GOOD_MAX];
   string goodname[GOOD_MAX];
-  int good_no = readlist(good);
+  int good_no = readlist(good,goodname);
   int cus_no=0,profit=0,cashier_counter=0;
   int **pack;
   cout << "How many customers in the line?" <<endl;
@@ -123,19 +127,14 @@ int main()
   }
   srand(time(0));
   for (int i=0;i<cus_no;i++){
-    generate_random(line,i,good,good_no);
+    generate_random(line,i,good,good_no,goodname);
   }
-  print_customer(line,cus_no);
   profit=arrange_line(cus_no,line,pack);
-  cout<<"Profit for openning a new cashier: $"<<profit<<endl;
-  int trace[100]={0};
   while (profit>COST_PER_LINE){
+    int trace[100]={0};
     cashier_counter+=1;
     trace_line(trace,cus_no,TIME,line,pack);
-    cout << "Cashier #" << cashier_counter<<endl;
-    print_line(trace,cus_no,profit);
-    trace[CUSTOMER_MAX]={0};
+    print_line(trace,cus_no,profit,cashier_counter);
     profit=arrange_line(cus_no,line,pack);
-    cout<<"Profit for openning a new cashier: $"<<profit<<endl;
   }
 }
