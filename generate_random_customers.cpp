@@ -1,5 +1,8 @@
 // generate a random list of the item each customer bought
 #include <generate_random_customer.h>
+
+using namespace std;
+
 void generate_random_customer(customer line[],int cus_pos, int good[], int good_no, string goodname[]){
   int n = 0;
   ofstream fout("Raw_Customer.txt",ios::app);
