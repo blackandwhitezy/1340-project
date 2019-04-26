@@ -1,6 +1,8 @@
 //trace the customer chosen in the cashier
 #include <trace_line.h>
+
 using namespace std;
+
 int trace_line(int trace[],int i, int j,customer *&p,int **&pack){
   if (i == 0){
     return 0;
