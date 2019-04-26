@@ -1,3 +1,7 @@
+// output the result    
+#include <iostream>
+#include <fstream>
+#include <iomanip>
 void print_line(int customer_number[],int number, int profit, int cashier_counter){
   ofstream fout("Line_Customer.txt",ios::app);
   fout << "Cashier #" << cashier_counter<<endl;
