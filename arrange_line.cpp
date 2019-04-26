@@ -1,5 +1,5 @@
 //return maxprofit
-#include <iostream>
+#include <arrange.h>
 
 int isBigger(int a,int b,int c){
   int temp;
