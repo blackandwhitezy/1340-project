@@ -1,7 +1,7 @@
 // output the result    
-#include <iostream>
-#include <fstream>
-#include <iomanip>
+#include<write_cashier_arrangement>
+using namespace std;
+
 void wirte_cashier_arrangement(int customer_number[],int number, int profit, int cashier_counter){
   ofstream fout("Cashier_Arrangemet.txt",ios::app);
   fout << "Cashier #" << cashier_counter<<endl;
