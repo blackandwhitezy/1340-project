@@ -9,7 +9,7 @@ using namespace std;
 
 const int GOOD_MAX=100;
 const int TIME=90;
-const int COST_PER_LINE=300;
+const int COST_PER_LINE=250;
 const int CUSTOMER_MAX=500;
 
 struct customer{
@@ -137,4 +137,6 @@ int main()
     print_line(trace,cus_no,profit,cashier_counter);
     profit=arrange_line(cus_no,line,pack);
   }
+  delete [] pack;
+  delete [] line;
 }
