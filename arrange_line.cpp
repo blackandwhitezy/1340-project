@@ -1,6 +1,8 @@
 //return maxprofit
 #include <arrange.h>
 
+using namespace std;
+
 int isBigger(int a,int b,int c){
   int temp;
   if (a > b)
