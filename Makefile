@@ -1,7 +1,7 @@
 SOURCES = main.cpp read_goods_file.cpp generate_random_customer.cpp arrange_line.cpp trace_line.cpp write_cashier_arrangement.cpp
 OBJECTS = main.o read_goods_file.o generate_random_customer.o arrange_line.o trace_line.o write_cashier_arrangement.o
 HEADERS = main.h read_goods_file.h generate_random_customer.h arrange_line.h trace_line.h write_cashier_arrangement.h customer.h
-PROGRAM = cash_register_system
+PROGRAM = Cash_Register_System
 
 $(PROGRAM) : $(OBJECTS)
         g++ $^ -o $@
