@@ -1,4 +1,6 @@
 //return maxprofit
+#include <iostream>
+#include "isBigger.h"
 int arrange_line(int cus_no,customer *&p,int **&pack){
   int test=0;
   pack=new int*[cus_no+1];
