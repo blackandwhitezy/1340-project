@@ -31,4 +31,5 @@ int main()
   }
   delete [] pack;
   delete [] line;
+  return 0;
 }
