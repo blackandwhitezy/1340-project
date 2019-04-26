@@ -1,8 +1,6 @@
 //creat the good array based on good list. Return the total number of goods available.
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
+#include <readlist.h>
+using namespace std;
 int readlist(int good[],string goodname[]){
   string line,name,profit;int i=0;
   ifstream fin("goods.txt");
