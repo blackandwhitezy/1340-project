@@ -1,6 +1,18 @@
 //return maxprofit
 #include <iostream>
 
+int isBigger(int a,int b,int c){
+  int temp;
+  if (a > b)
+    temp = a;
+  else
+    temp = b;
+  if(temp<c)
+    temp = c;
+  return temp;
+}
+
+
 int arrange_line(int cus_no,customer *&p,int **&pack){
   int test=0;
   pack=new int*[cus_no+1];
