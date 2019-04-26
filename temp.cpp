@@ -18,12 +18,12 @@ struct customer{
 };
 
 //creat the good array based on good list. Return the total number of goods available.
-int readlist(int good[],string goodname[]){
+int read_goods_file(int good[],string good_name[]){
   string line,name,profit;int i=0;
   ifstream fin("goods.txt");
   while (getline(fin,line)){
     istringstream line_in(line);
-    line_in>>goodname[i];
+    line_in>>good_name[i];
     line_in>>profit;
     good[i]=atoi(profit.c_str());
     i++;
@@ -32,13 +32,13 @@ int readlist(int good[],string goodname[]){
   return i;
 }
 
-void generate_random(customer line[],int cus_pos, int good[], int good_no, string goodname[]){
+void generate_random_customers(customer line[],int cus_pos, int good[], int good_no, string good_name[]){
   int n = 0;
   ofstream fout("Raw_Customer.txt",ios::app);
   fout << "Customer "<<left<< setw(3)<<cus_pos+1 <<"bought ";
   for (int i=0;i<good_no;i++){
     n = rand()%6;
-    fout <<setw(2) <<n << goodname[i]<< ", ";
+    fout <<setw(2) <<n << good_name[i]<< ", ";
     line[cus_pos].profit += good[i] * n;
     line[cus_pos].item_no += n;
     //cout << line[cus_pos].profit <<" " << line[cus_pos].item_no << endl;
@@ -100,8 +100,8 @@ int trace_line(int trace[],int i, int j,customer *&p,int **&pack){
 }
 
 
-void print_line(int customer_number[],int number, int profit, int cashier_counter){
-  ofstream fout("Line_Customer.txt",ios::app);
+void write_cashier_arrangement(int customer_number[],int number, int profit, int cashier_counter){
+  ofstream fout("Cashier_Arrangement.txt",ios::app);
   fout << "Cashier #" << cashier_counter<<endl;
   for(int i=0; i<number;i++){
     if (customer_number[i] !=0)
@@ -114,8 +114,8 @@ void print_line(int customer_number[],int number, int profit, int cashier_counte
 int main()
 {
   int good[GOOD_MAX];
-  string goodname[GOOD_MAX];
-  int good_no = readlist(good,goodname);
+  string good_name[GOOD_MAX];
+  int good_no = read_goods_file(good,good_name);
   int cus_no=0,profit=0,cashier_counter=0;
   int **pack;
   cout << "How many customers in the line?" <<endl;
@@ -127,7 +127,7 @@ int main()
   }
   srand(time(0));
   for (int i=0;i<cus_no;i++){
-    generate_random_customers(line,i,good,good_no,goodname);
+    generate_random_customers(line,i,good,good_no,good_name);
   }
   profit=arrange_line(cus_no,line,pack);
   while (profit>COST_PER_LINE){
