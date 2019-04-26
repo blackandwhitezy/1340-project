@@ -18,7 +18,7 @@ struct customer{
 };
 
 //creat the good array based on good list. Return the total number of goods available.
-int readlist(int good[]){
+int readlist(int good[],string goodname[]){
   string line,name,profit;int i=0;
   ifstream fin("goods.txt");
   while (getline(fin,line)){
@@ -31,14 +31,18 @@ int readlist(int good[]){
   return i;
 }
 
-void generate_random(customer line[],int cus_pos, int good[], int good_no){
+void generate_random(customer line[],int cus_pos, int good[], int good_no, string goodname[]){
   int n = 0;
+  ofstream fout("Raw_Customer.txt",ios::app);
+  fout << "Customer "<<left<< setw(3)<<cus_pos+1 <<"bought ";
   for (int i=0;i<good_no;i++){
     n = rand()%4;
+    fout <<setw(2)<<n << goodname[i]<< ", ";
     line[cus_pos].profit += good[i] * n;
     line[cus_pos].item_no += n;
     //cout << line[cus_pos].profit <<" " << line[cus_pos].item_no << endl;
   }
+  fout << " Total items: "<<left <<setw(3)<< line[cus_pos].item_no <<" Total profit: "<<left<<setw(3)<< line[cus_pos].profit<<endl;
 }
 
 void print_customer(customer line[],int cus_no){
@@ -112,6 +116,7 @@ void print_line(int customer_number[],int number, int profit){
 int main()
 {
   int good[GOOD_MAX];
+  string goodname[GOOD_MAX];
   int good_no = readlist(good);
   int cus_no=0,profit=0,line_no=0,cashier_counter=0,counter=0;
   int **pack;
