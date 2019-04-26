@@ -1,17 +1,30 @@
-census.o:census.cpp BigInteger.h Country.h
+SOURCES = main.cpp read_goods_file.cpp generate_random_customer.cpp arrange_line.cpp trace_line.cpp write_cashier_arrangement.cpp
+OBJECTS = main.o read_goods_file.o generate_random_customer.o arrange_line.o trace_line.o write_cashier_arrangement.o
+HEADERS = main.h read_goods_file.h generate_random_customer.h arrange_line.h trace_line.h write_cashier_arrangement.h
+PROGRAM = cash_register_system
+
+$(PROGRAM) : $(OBJECTS)
+        g++ $^ -o $@
+
+main.o: main.cpp $(HEADERS)
       g++ -c $<
-#The above command is the same as g++ -c census.cpp
-BigInteger.o:BigInteger.cpp BigInteger.h
+
+read_goods_file.o: read_goods_file.cpp $(HEADERS)
       g++ -c $<
-#The above command is the same as g++ -c BigInteger.cpp
-Country.o:Country.cpp BigInteger.h Country.h
-g++ -c $<
-#The above command is the same as g++ -c Country.cpp
-census:census.o BigInteger.o Country.o
-g++ $^ -o $@
-#The above command is the same as g++ census.o BigInteger.o Country.o -o census
+      
+generate_random_customer.o: generate_random_customer.cpp $(HEADERS)
+      g++ -c $<
+      
+arrange_line.o trace_line.o: arrange_line.o trace_line.cpp $(HEADERS)
+      g++ -c $<
+      
+write_cashier_arrangement.o: write_cashier_arrangement.cpp $(HEADERS)
+      g++ -c $<
+      
+
 clean:
-rm census census.o BigInteger.o Country.o
+      rm $(PROGRAM) $(OBJECTS)
 tar:
-tar -czvf census.tgz *.cpp *.h
-.PHONY: clean tar
+      tar cash_register_system -czvf .tgz *.cpp *.h
+.PHONY: 
+      clean tar
