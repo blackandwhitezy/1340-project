@@ -127,14 +127,14 @@ int main()
   }
   srand(time(0));
   for (int i=0;i<cus_no;i++){
-    generate_random(line,i,good,good_no,goodname);
+    generate_random_customers(line,i,good,good_no,goodname);
   }
   profit=arrange_line(cus_no,line,pack);
   while (profit>COST_PER_LINE){
     int trace[100]={0};
     cashier_counter+=1;
     trace_line(trace,cus_no,TIME,line,pack);
-    print_line(trace,cus_no,profit,cashier_counter);
+    write_cashier_arrangement(trace,cus_no,profit,cashier_counter);
     profit=arrange_line(cus_no,line,pack);
   }
   delete [] pack;
