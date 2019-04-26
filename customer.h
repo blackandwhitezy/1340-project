@@ -1,3 +1,5 @@
+#include <iostream>
+
 const int GOOD_MAX=100;
 const int TIME=90;
 const int COST_PER_LINE=300;
