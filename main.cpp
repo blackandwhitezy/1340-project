@@ -1,5 +1,4 @@
-#include <iostream>
-#include <ctime>
+#include <main.h>
 using namespace std;
 
 
