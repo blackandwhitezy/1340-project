@@ -14,7 +14,7 @@ read_goods_file.o: read_goods_file.cpp $(HEADERS)
       
 generate_random_customer.o: generate_random_customer.cpp $(HEADERS)
         g++ -c $<
-      
+        
 arrange_line.o: arrange_line.cpp $(HEADERS)
         g++ -c $<
         
