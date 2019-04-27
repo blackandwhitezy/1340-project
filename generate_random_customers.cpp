@@ -1,5 +1,5 @@
 // generate a random list of the item each customer bought
-#include "generate_random_customer.h"
+#include "generate_random_customers.h"
 
 using namespace std;
 
