@@ -26,7 +26,7 @@ There is one line of customers with grocery waiting in line for the cashiers. Th
 
 1340 project stage 2
 
-***To compile the program. Use make Cash_Register_System in Linux.***
+***To compile the program. Use 'make Cash_Register_System' in Linux.***
 
 **Notice: "Tab" in github Makefile doesn't work, it will be automatically converted to 8 space in Linux. You might need to change** **"space"s to "Tab" manully**
 **Program Statement:**
