@@ -20,7 +20,7 @@ arrange_line.o: arrange_line.cpp $(HEADERS)
         
 trace_line.o: trace_line.cpp $(HEADERS)
         g++ -c $<
-        vi 
+        
 write_cashier_arrangement.o: write_cashier_arrangement.cpp $(HEADERS)
         g++ -c $<
       
