@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void generate_random_customer(customer line[],int cus_pos, int good[], int good_no, string goodname[]){
+void generate_random_customers(customer line[],int cus_pos, int good[], int good_no, string goodname[]){
   int n = 0;
   ofstream fout("Raw_Customer.txt",ios::app);
   fout << "Customer "<<left<< setw(3)<<cus_pos+1 <<"bought ";
