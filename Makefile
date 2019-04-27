@@ -17,8 +17,10 @@ generate_random_customer.o: generate_random_customer.cpp $(HEADERS)
       
 arrange_line.o: arrange_line.cpp $(HEADERS)
         g++ -c $<
+        
 trace_line.o: trace_line.cpp $(HEADERS)
         g++ -c $<
+        vi 
 write_cashier_arrangement.o: write_cashier_arrangement.cpp $(HEADERS)
         g++ -c $<
       
