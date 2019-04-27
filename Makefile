@@ -15,9 +15,10 @@ read_goods_file.o: read_goods_file.cpp $(HEADERS)
 generate_random_customer.o: generate_random_customer.cpp $(HEADERS)
         g++ -c $<
       
-arrange_line.o trace_line.o: arrange_line.o trace_line.cpp $(HEADERS)
+arrange_line.o: arrange_line.cpp $(HEADERS)
         g++ -c $<
-      
+trace_line.o: trace_line.cpp $(HEADERS)
+        g++ -c $<
 write_cashier_arrangement.o: write_cashier_arrangement.cpp $(HEADERS)
         g++ -c $<
       
