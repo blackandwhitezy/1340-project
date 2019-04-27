@@ -7,3 +7,4 @@
 
 #define COST_PER_LINE 250
 #define CUSTOMER_MAX 500
+#define GOOD_MAX 100
