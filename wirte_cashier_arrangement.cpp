@@ -1,5 +1,5 @@
 // output the result    
-#include<write_cashier_arrangement>
+#include"write_cashier_arrangement.h"
 using namespace std;
 
 void wirte_cashier_arrangement(int customer_number[],int number, int profit, int cashier_counter){
