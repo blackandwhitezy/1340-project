@@ -7,24 +7,24 @@ $(PROGRAM) : $(OBJECTS)
         g++ $^ -o $@
 
 main.o: main.cpp $(HEADERS)
-      g++ -c $<
+        g++ -c $<
 
 read_goods_file.o: read_goods_file.cpp $(HEADERS)
-      g++ -c $<
+        g++ -c $<
       
 generate_random_customer.o: generate_random_customer.cpp $(HEADERS)
-      g++ -c $<
+        g++ -c $<
       
 arrange_line.o trace_line.o: arrange_line.o trace_line.cpp $(HEADERS)
-      g++ -c $<
+        g++ -c $<
       
 write_cashier_arrangement.o: write_cashier_arrangement.cpp $(HEADERS)
-      g++ -c $<
+        g++ -c $<
       
 
 clean:
-      rm $(PROGRAM) $(OBJECTS)
+        rm $(PROGRAM) $(OBJECTS)
 tar:
-      tar cash_register_system -czvf .tgz *.cpp *.h
+        tar Cash_Register_System -czvf .tgz *.cpp *.h
 .PHONY: 
-      clean tar
+        clean tar
