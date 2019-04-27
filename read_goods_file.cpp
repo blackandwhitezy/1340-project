@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int readlist(int good[],string goodname[]){
+int read_goods_file(int good[],string goodname[]){
   string line,name,profit;int i=0;
   ifstream fin("goods.txt");
   while (getline(fin,line)){
